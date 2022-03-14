@@ -1,12 +1,41 @@
 import React, { Component } from 'react';
 import UserItem from './UserItem';
+import Spinner from '../layout/Spinner';
 
 const Users = ({ users, loading }) => {
+  // if (loading) {
+  //   return <Spinner />;
+  // } else {
+  //   return (
+  //     // loot through users array
+  //     <div style={userStyle}>
+  //       {users.map((user) => (
+  //         <UserItem key={user.id} user={user} />
+  //       ))}
+  //     </div>
+  //   );
+  // }
+
+  //   return (
+  //     // loot through users array
+  //     <div style={userStyle}>
+  //       {users.map((user) => (
+  //         <div>
+  //           {loading ? <Spinner /> : <UserItem key={user.id} user={user} />}
+  //         </div>
+  //       ))}
+  //     </div>
+  //   );
+  // };
+
   return (
     // loot through users array
     <div style={userStyle}>
       {users.map((user) => (
-        <UserItem key={user.id} user={user} />
+        <div>
+          {loading && <Spinner />}
+          <UserItem key={user.id} user={user} />
+        </div>
       ))}
     </div>
   );
